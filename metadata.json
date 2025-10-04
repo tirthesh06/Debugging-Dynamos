@@ -1,0 +1,9 @@
+{
+  "name": "Smart Curriculum & Attendance App",
+  "description": "An integrated platform for schools to manage curriculum activities and attendance, enhanced with AI features for performance prediction and student support, designed for the Smart India Hackathon.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation",
+    "microphone"
+  ]
+}

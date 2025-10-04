@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Curriculum & Attendance App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        @keyframes fade-in-down {
+          from {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-in-down {
+          animation: fade-in-down 0.5s ease-out forwards;
+        }
+
+        /* --- Animation & Transformation Layer --- */
+
+        /* 2. Scroll Animations */
+        .fade-in-up-on-scroll {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: opacity 0.6s cubic-bezier(0.645, 0.045, 0.355, 1), 
+                      transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        .fade-in-up-on-scroll.is-visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        /* 3. Interactive UI Elements */
+        .interactive-card {
+          transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+                      box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .interactive-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Tab underline animation */
+        .tab-button {
+            position: relative;
+            overflow: hidden;
+            transition: color 0.3s ease;
+        }
+        .tab-button::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: currentColor;
+            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transform: translateX(-50%);
+        }
+        .tab-button:hover::after {
+            width: 100%;
+        }
+        .tab-button.active {
+            color: #818cf8; /* indigo-400 */
+        }
+        .tab-button.active::after {
+            width: 100%;
+            background-color: #6366f1; /* indigo-500 */
+        }
+
+        .select-none {
+          -webkit-user-select: none; /* Safari */
+          -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* IE10+/Edge */
+          user-select: none; /* Standard */
+        }
+
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.20.0",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "recharts": "https://aistudiocdn.com/recharts@^3.2.1"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
